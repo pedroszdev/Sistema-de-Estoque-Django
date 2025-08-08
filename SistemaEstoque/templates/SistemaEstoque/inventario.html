@@ -1,0 +1,26 @@
+{% extends "global/base.html" %}
+{% block content %}
+    <div class="min-h-screen">
+    
+        <!-- Content -->
+        <div class="container py-8">
+            <div class="mb-8 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl text-gray-900">Inventário Completo</h2>
+                    <p class="text-gray-600">... produtos cadastrados</p>
+                </div>
+                <div class="flex space-x-4">
+                    <form action="" method="GET">
+                         <input type="search" class="search" placeholder="Buscar por ID, Nome ou Categoria..." id="search" name="q" value="">
+                    </form>
+                    <select>
+                        <option>Todas as categorias</option>
+                        
+                    </select>
+                </div>
+            </div>
+            {% comment %} Fazer tabela aq e paginação {% endcomment %}
+           
+        </div>
+    </div>
+{% endblock content %}
