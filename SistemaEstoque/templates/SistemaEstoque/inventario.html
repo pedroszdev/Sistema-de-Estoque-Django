@@ -10,16 +10,49 @@
                     <p class="text-gray-600">... produtos cadastrados</p>
                 </div>
                 <div class="flex space-x-4">
-                    <form action="" method="GET">
-                         <input type="search" class="search" placeholder="Buscar por ID, Nome ou Categoria..." id="search" name="q" value="">
+                    <form action="{% url "SistemaEstoque:search" %}" method="GET">
+                         <input type="search" class="search" placeholder="Buscar por ID, Nome, Preço ou Categoria..." id="search" name="q" value="{{search_value}}">
                     </form>
-                    <select>
+                    <select placeholder='Todas as categorias'>
                         <option>Todas as categorias</option>
-                        
                     </select>
                 </div>
             </div>
-            {% comment %} Fazer tabela aq e paginação {% endcomment %}
+            <table class="contacts-table">
+            
+                <thead> {% comment "" %} Nome das coluna da tabela dos contatos{% endcomment %}
+                    <tr class="table-row table-row-header">
+                        <th class="table-header">ID</th>
+                        <th class="table-header">Nome</th>
+                        <th class="table-header">Quantidade</th>
+                        <th class="table-header">Preço</th>
+                        <th class="table-header">Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in estoque %}
+                        <tr class="table-row">{% comment "" %} dados do contato em cada coluna especifica{% endcomment %}
+                            <td class="table-cel">
+                                <a href=" " class="table-link"> {% comment "" %} Link no id para ir pra informaçoes de determinado contato{% endcomment %}
+                                    {{item.id}}
+                                </a>
+                            </td>
+                            <td class="table-cel">
+                                {{item.nome}} 
+                            </td>
+                            <td class="table-cel">
+                                {{item.quantidade}}
+                            </td>
+                            <td class="table-cel">
+                                {{item.preco}}
+                            </td>
+                            <td class="table-cel">
+                                {{item.categoria}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
            
         </div>
     </div>
