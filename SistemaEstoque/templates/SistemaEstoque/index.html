@@ -1,136 +1,22 @@
 {% extends "global/base.html" %}
 {% block content %}
-    <div class="min-h-screen">
-        <div class="container py-8">
-            <div class="mb-8">
-                <h2 class="text-3xl text-gray-900">Painel </h2>
-            </div>
-            <div class="grid grid-cols-4 mb-8">
-                <div class="card p-6 border-l-4 border-l-blue-500">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm text-gray-600">Itens Ativos</p>
-                            <p class="text-2xl text-gray-900">2.677</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card p-6 border-l-4 border-l-green-500">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm text-gray-600">Valor Inventário</p>
-                            <p class="text-2xl text-gray-900">R$ 456.768,95</p>
-                        </div>
-                    </div>
-                </div>
-                
-                
-            </div>
+    <div class="home-container">
+    <h1 class="home-title">📦 Sistema de Estoque</h1>
+    <p class="home-subtitle">Gerencie seus produtos de forma simples e rápida</p>
 
-            <div class="grid lg-grid-cols-3">
-                <div class="col-span-2">
-                    <div class="card p-6">
-                        <h3 class="text-lg text-gray-900 mb-4">Movimentações Hoje</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between border-l-4 border-l-green-400" style="padding: 0.75rem 0 0.75rem 1rem; background: #f0fdf4;">
-                                <div class="flex items-center space-x-4">
-                                    <div style="width: 40px; height: 40px; background: #dcfce7; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                                        <div style="width: 16px; height: 16px; background: #059669; border-radius: 2px;"></div>
-                                    </div>
-                                    <div>
-                                        <span class="text-gray-900">Entrada: MacBook Pro M3 14"</span>
-                                        <p class="text-sm text-gray-500">Fornecedor: Apple Autorizada SP</p>
-                                    </div>
-                                </div>
-                                <div style="text-align: right;">
-                                    <span class="text-green-600">+8 unidades</span>
-                                    <p class="text-xs text-gray-500">07:30</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center justify-between border-l-4 border-l-blue-400" style="padding: 0.75rem 0 0.75rem 1rem; background: #eff6ff;">
-                                <div class="flex items-center space-x-4">
-                                    <div style="width: 40px; height: 40px; background: #dbeafe; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                                        <div style="width: 16px; height: 16px; background: #2563eb; border-radius: 2px;"></div>
-                                    </div>
-                                    <div>
-                                        <span class="text-gray-900">Saída: iPad Air 256GB WiFi</span>
-                                        <p class="text-sm text-gray-500">Pedido: #TF-2024-8847</p>
-                                    </div>
-                                </div>
-                                <div style="text-align: right;">
-                                    <span class="text-blue-600">-3 unidades</span>
-                                    <p class="text-xs text-gray-500">06:15</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center justify-between border-l-4 border-l-purple-400" style="padding: 0.75rem 0 0.75rem 1rem; background: #faf5ff;">
-                                <div class="flex items-center space-x-4">
-                                    <div style="width: 40px; height: 40px; background: #e9d5ff; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                                        <div style="width: 16px; height: 16px; background: #8b5cf6; border-radius: 2px;"></div>
-                                    </div>
-                                    <div>
-                                        <span class="text-gray-900">Transferência: AirPods Pro 2ª Gen</span>
-                                        <p class="text-sm text-gray-500">Destino: Filial Rio de Janeiro</p>
-                                    </div>
-                                </div>
-                                <div style="text-align: right;">
-                                    <span style="color: #8b5cf6;">-12 unidades</span>
-                                    <p class="text-xs text-gray-500">05:45</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center justify-between border-l-4" style="border-left-color: #fbbf24; padding: 0.75rem 0 0.75rem 1rem; background: #fffbeb;">
-                                <div class="flex items-center space-x-4">
-                                    <div style="width: 40px; height: 40px; background: #fef3c7; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                                        <div style="width: 16px; height: 16px; background: #d97706; border-radius: 2px;"></div>
-                                    </div>
-                                    <div>
-                                        <span class="text-gray-900">Ajuste: iPhone 15 Pro 128GB</span>
-                                        <p class="text-sm text-gray-500">Correção inventário</p>
-                                    </div>
-                                </div>
-                                <div style="text-align: right;">
-                                    <span class="text-amber-600">-1 unidade</span>
-                                    <p class="text-xs text-gray-500">05:20</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card p-6">
-                    <h3 class="text-lg text-gray-900 mb-4">Alertas Prioritários</h3>
-                    <div class="space-y-4">
-                        <div style="padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;">
-                            <div class="flex items-center space-x-2 mb-2">
-                                <div style="width: 8px; height: 8px; background: #ef4444; border-radius: 50%;"></div>
-                                <span style="color: #991b1b; font-size: 14px;">Crítico</span>
-                            </div>
-                            <p class="text-sm text-gray-700">Apple Watch Series 9 45mm</p>
-                            <p class="text-xs text-gray-500 mt-1">Estoque zerado há 2 dias</p>
-                        </div>
-                        
-                        <div style="padding: 0.75rem; background: #fffbeb; border: 1px solid #fed7aa; border-radius: 8px;">
-                            <div class="flex items-center space-x-2 mb-2">
-                                <div style="width: 8px; height: 8px; background: #f59e0b; border-radius: 50%;"></div>
-                                <span style="color: #92400e; font-size: 14px;">Atenção</span>
-                            </div>
-                            <p class="text-sm text-gray-700">Magic Keyboard para iPad Pro</p>
-                            <p class="text-xs text-gray-500 mt-1">2 unidades restantes</p>
-                        </div>
-                        
-                        <div style="padding: 0.75rem; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;">
-                            <div class="flex items-center space-x-2 mb-2">
-                                <div style="width: 8px; height: 8px; background: #3b82f6; border-radius: 50%;"></div>
-                                <span style="color: #1e40af; font-size: 14px;">Informativo</span>
-                            </div>
-                            <p class="text-sm text-gray-700">Chegada prevista: MacBook Air M3</p>
-                            <p class="text-xs text-gray-500 mt-1">15 unidades amanhã</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="home-cards">
+        <div class="card">
+            <h2>{{ total_produtos }}</h2>
+            <p>Produtos Cadastrados</p>
+        </div>
+        <div class="card">
+            <h2>R$ {{ valor_total|floatformat:2 }}</h2>
+            <p>Valor Total em Estoque</p>
+        </div>
+        <div class="card">
+            <h2>{{ total_categoria }}</h2>
+            <p>Categorias</p>
         </div>
     </div>
+</div>
 {% endblock content %}

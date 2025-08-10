@@ -10,14 +10,14 @@
 
             <div class="nav-links">
                 <a href="{% url "SistemaEstoque:inventario" %}">Inventário</a>
-                <a href="{% url "SistemaEstoque:novo_item" %}">Novo Item</a>
-                <a href="{% url "SistemaEstoque:nova_categoria" %}">Nova Categoria</a>
+                <a href="{% url "SistemaEstoque:novo_item" %}">Cadastrar Produto</a>
+                <a href="{% url "SistemaEstoque:nova_categoria" %}">Cadastrar Categoria</a>
 
             </div>
             <div class="nav-right">
                 <div class="user-info">
                     <span class="text-sm text-gray-500"></span>
-                    <span class="text-sm text-gray-600">Name User</span>
+                    <span class="text-sm text-gray-600">{{user.username}}</span>
                 </div>
                 <div class="user-avatar">
                     <p>NU</p>

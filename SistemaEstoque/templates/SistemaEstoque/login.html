@@ -1,0 +1,18 @@
+{% extends "global/base.html" %}
+{% block content %}
+    <div class="min-h-screen">
+       
+
+        <div class="container py-8">
+            <div class="mb-8">
+                <h2 class="text-2xl text-gray-900">login</h2>
+            </div>
+            {% if user.is_authenticated %}
+                <p>{{user.username}} fez login com sucesso.</p>
+                <a href="{% url "SistemaEstoque:logout" %}">Clique aqui para sair. </a>
+            {% else %}
+                {% include "global/partials/forms.html" %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

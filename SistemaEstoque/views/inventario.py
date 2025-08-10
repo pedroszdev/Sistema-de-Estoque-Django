@@ -9,9 +9,10 @@ def inventario(request):
     paginator=Paginator(estoque,30)
     page_number=request.GET.get('page')
     page_obj=paginator.get_page(page_number)
-    
+    total_produtos=Estoque.objects.count()
     contexto={
-        'estoque':page_obj
+        'estoque':page_obj,
+        'total_produtos' : total_produtos
     }
 
 
