@@ -33,7 +33,7 @@
                     {% for item in estoque %}
                         <tr class="table-row">{% comment "" %} dados do contato em cada coluna especifica{% endcomment %}
                             <td class="table-cel">
-                                <a href=" " class="table-link"> {% comment "" %} Link no id para ir pra informaçoes de determinado contato{% endcomment %}
+                                <a href="{% url 'SistemaEstoque:item_sozinho' item.id %}" class="table-link"> {% comment "" %} Link no id para ir pra informaçoes de determinado contato{% endcomment %}
                                     {{item.id}}
                                 </a>
                             </td>

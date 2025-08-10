@@ -41,3 +41,4 @@ def search(request):
     }
 
     return render(request, 'SistemaEstoque/inventario.html', contexto)
+

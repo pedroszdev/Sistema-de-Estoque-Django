@@ -1,0 +1,23 @@
+{% extends "global/base.html" %}
+{% block content %}
+    <div class="item-container">
+            <h1 class="item-title">{{ item.nome }}</h1>
+
+            <div class="item-details">
+                <p><strong>ID:</strong> {{ item.id }}</p>
+                <p><strong>Quantidade:</strong> {{ item.quantidade }}</p>
+                <p><strong>Preço:</strong> R$ {{ item.preco }}</p>
+                <p><strong>Categoria:</strong> {{ item.categoria|default:"Sem categoria" }}</p>
+            </div>
+
+            <div class="item-actions">
+                <a href="{% url 'SistemaEstoque:update' item.id %}" class="btn-update">
+                    Atualizar Item
+                </a>
+                <a href="{% url 'SistemaEstoque:delete' item.id %}" class="btn-delete">
+                    Deletar Item
+                </a>
+            </div>
+    </div>
+
+{% endblock content %}
