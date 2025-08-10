@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from SistemaEstoque.forms import  RegisterForm, RegisterUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
+
+
 
 def criar_user(request):
     form = RegisterForm()
@@ -20,6 +23,9 @@ def criar_user(request):
 
     return render(request, 'SistemaEstoque/criar_usuario.html', contexto)
 
+
+
+@login_required(login_url='SistemaEstoque:login')
 def atualizar_user(request):
 
     form = RegisterUpdateForm(instance=request.user)
@@ -56,6 +62,8 @@ def login_user(request):
 
     return render(request, 'SistemaEstoque/login.html', contexto)
 
+
+@login_required(login_url='SistemaEstoque:login')  
 def logout(request):
     auth.logout(request)
     return redirect('SistemaEstoque:login')

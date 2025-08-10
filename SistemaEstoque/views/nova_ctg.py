@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from SistemaEstoque.forms import CategoriaForm
+from django.contrib.auth.decorators import login_required
+
+
+@login_required(login_url='SistemaEstoque:login')
 def add_ctg(request):
     form_action=reverse('SistemaEstoque:nova_categoria')
 

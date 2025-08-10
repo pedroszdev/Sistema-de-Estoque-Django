@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from SistemaEstoque.forms import NovoItemForm
 from SistemaEstoque.models import Estoque
+from django.contrib.auth.decorators import login_required
 
+
+
+@login_required(login_url='SistemaEstoque:login')
 def add_item(request):
     form_action=reverse('SistemaEstoque:novo_item')
 
@@ -25,6 +29,9 @@ def add_item(request):
     
     return render(request,'SistemaEstoque/novo_item.html', contexto)
 
+
+
+@login_required(login_url='SistemaEstoque:login')
 def update(request, id_item):
     estoque= get_object_or_404(Estoque,pk=id_item)
     form_action=reverse('SistemaEstoque:update', args=(id_item,))
@@ -47,6 +54,9 @@ def update(request, id_item):
 
     return render(request, 'SistemaEstoque/update.html', contexto)
 
+
+
+@login_required(login_url='SistemaEstoque:login')
 def delete(request, id_item):
     item= Estoque.objects.get(id=id_item)
     item.delete()
