@@ -5,7 +5,8 @@
     <p class="inventario-subtitle">Visão geral do estoque</p>
     <div class="search-container">
         <form action="{% url "SistemaEstoque:search" %}" method="GET">
-                <input type="search" class="search-input" placeholder="Buscar por ID, Nome, Preço ou Categoria..." id="search" name="q" value="{{search_value}}">
+                <input type="search" class="search-input" placeholder="Buscar por ID, Nome, Preço ou Categoria..." 
+                id="search" name="q" value="{{search_value}}">
                 <button class="search-btn">Buscar</button>
         </form>
     </div>
