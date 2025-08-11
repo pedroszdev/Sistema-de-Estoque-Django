@@ -33,7 +33,7 @@ def add_item(request):
 
 @login_required(login_url='SistemaEstoque:login')
 def update(request, id_item):
-    estoque= get_object_or_404(Estoque,pk=id_item)
+    estoque= get_object_or_404(Estoque,pk=id_item, criador=request.user)
     form_action=reverse('SistemaEstoque:update', args=(id_item,))
     form = NovoItemForm(instance=estoque)
     if request.method == 'POST':
@@ -58,6 +58,6 @@ def update(request, id_item):
 
 @login_required(login_url='SistemaEstoque:login')
 def delete(request, id_item):
-    item= Estoque.objects.get(id=id_item)
+    item= Estoque.objects.get(id=id_item, criador=request.user)
     item.delete()
     return render(request,'SistemaEstoque/inventario.html')

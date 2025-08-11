@@ -11,11 +11,12 @@
                 <p><strong>Quantidade:</strong> {{ item.quantidade }}</p>
                 <p><strong>Preço:</strong> R$ {{ item.preco|floatformat:2 }}</p>
                 <p><strong>Descrição:</strong> {{ item.descricao|default:"Sem descrição" }}</p>
-
-                <div class="item-buttons">
-                    <a href="{% url 'SistemaEstoque:update' item.id %}" class="btn-edit">Atualizar Produto</a>
-                    <a href="{% url 'SistemaEstoque:delete' item.id %}" class="btn-delete">Excluir Produto</a>
-                </div>
+                {% if item.criador == user %}
+                    <div class="item-buttons">
+                        <a href="{% url 'SistemaEstoque:update' item.id %}" class="btn-edit">Atualizar Produto</a>
+                        <a href="{% url 'SistemaEstoque:delete' item.id %}" class="btn-delete">Excluir Produto</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
