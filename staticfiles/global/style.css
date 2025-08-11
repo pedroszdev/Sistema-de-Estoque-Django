@@ -349,22 +349,107 @@ body{
 .btn-logout:hover {
     background-color: #a30014;
 }
-
+@media (max-width: 992px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px 15px;
+  }
+  .navbar-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .navbar-user {
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .inventario-cards {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+@media (max-width: 480px) {
+  .form-title,
+  .home-title,
+  .item-title {
+    font-size: 22px;
+  }
+  .stat-card h2 {
+    font-size: 22px;
+  }
+}
 /* Responsivo para celular */
 @media (max-width: 768px) {
-    .navbar {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    .navbar-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-    }
-    .navbar-user {
-        width: 100%;
-        justify-content: center; }}
+    /* Navbar empilhada */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar-logo {
+    margin-bottom: 10px;
+  }
+  .navbar-links {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 8px;
+  }
+  .navbar-links a {
+    display: block;
+    width: 100%;
+  }
+  .navbar-user {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    width: 100%;
+  }
 
+  /* Inputs e botões */
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-input,
+  .search-btn {
+    width: 100%;
+  }
+
+  /* Cards e grids */
+  .stats-grid,
+  .inventario-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tabelas */
+  .inventario-table-container {
+    overflow-x: auto;
+  }
+
+  /* Formulários */
+  .form-container {
+    margin: 20px;
+    padding: 15px;
+  }
+  .btn-submit {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Detalhes do item */
+  .item-details {
+    flex-direction: column;
+  }
+  .item-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .item-buttons a {
+    text-align: center;
+  }
+}
 
 .home-container {
         max-width: 1200px;
