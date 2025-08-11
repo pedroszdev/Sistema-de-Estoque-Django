@@ -1,1 +1,1 @@
-web: gunicorn SistemaEstoque.wsgi 
+web: gunicorn project.wsgi 
