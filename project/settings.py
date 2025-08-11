@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'estoque_usbk',      # nome do banco PostgreSQL
         'USER': 'estoque_usbk_user',   # seu usuário do PostgreSQL
         'PASSWORD': 'egkAeTIC9zLjWwgd4CSOTMKUY2LOifv7', # senha do usuário
-        'HOST': '189.27.225.33/32',          # ou o IP do servidor do banco
+        'HOST': 'dpg-d2d2cqi4d50c7383lef0-a',          # ou o IP do servidor do banco
         'PORT': '5432',               # porta padrão do PostgreSQL
     }
 }
