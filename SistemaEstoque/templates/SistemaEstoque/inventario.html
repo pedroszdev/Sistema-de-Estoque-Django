@@ -1,59 +1,51 @@
 {% extends "global/base.html" %}
 {% block content %}
-    <div class="min-h-screen">
-    
-        <!-- Content -->
-        <div class="container py-8">
-            <div class="mb-8 flex justify-between items-center">
-                <div>
-                    <h2 class="text-2xl text-gray-900">Inventário Completo</h2>
-                    <p class="text-gray-600">{{ total_produtos }} produtos cadastrado</p>
-                </div>
-                <div class="flex space-x-4">
-                    <form action="{% url "SistemaEstoque:search" %}" method="GET">
-                         <input type="search" class="search" placeholder="Buscar por ID, Nome, Preço ou Categoria..." id="search" name="q" value="{{search_value}}">
-                    </form>
-                    <select placeholder='Todas as categorias'>
-                        <option>Todas as categorias</option>
-                    </select>
-                </div>
-            </div>
-            <table class="contacts-table">
-            
-                <thead> {% comment "" %} Nome das coluna da tabela dos contatos{% endcomment %}
-                    <tr class="table-row table-row-header">
-                        <th class="table-header">ID</th>
-                        <th class="table-header">Nome</th>
-                        <th class="table-header">Quantidade</th>
-                        <th class="table-header">Preço</th>
-                        <th class="table-header">Categoria</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in estoque %}
-                        <tr class="table-row">{% comment "" %} dados do contato em cada coluna especifica{% endcomment %}
-                            <td class="table-cel">
-                                <a href="{% url 'SistemaEstoque:item_sozinho' item.id %}" class="table-link"> {% comment "" %} Link no id para ir pra informaçoes de determinado contato{% endcomment %}
-                                    {{item.id}}
-                                </a>
-                            </td>
-                            <td class="table-cel">
-                                {{item.nome}} 
-                            </td>
-                            <td class="table-cel">
-                                {{item.quantidade}}
-                            </td>
-                            <td class="table-cel">
-                                {{item.preco}}
-                            </td>
-                            <td class="table-cel">
-                                {{item.categoria}}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-           
-        </div>
+   <div class="inventario-container">
+    <h1 class="inventario-title">Inventário Completo</h1>
+    <p class="inventario-subtitle">Visão geral do estoque</p>
+    <div class="search-container">
+        <form action="{% url "SistemaEstoque:search" %}" method="GET">
+                <input type="search" class="search-input" placeholder="Buscar por ID, Nome, Preço ou Categoria..." id="search" name="q" value="{{search_value}}">
+                <button class="search-btn">Buscar</button>
+        </form>
     </div>
+    <div class="inventario-table-container">
+        <table class="inventario-table">
+            <thead>
+                <tr>
+                    <th>ID</t>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in estoque %}
+                <tr>
+                    <td>
+                        <a href="{% url 'SistemaEstoque:item_sozinho' produto.id %}" class="table-link"> {{produto.id}}</a>
+                    </td>
+                    <td>
+                        {{ produto.nome }}
+                    </td>
+                    <td>
+                        {{ produto.quantidade }}
+                    </td>
+                    <td>
+                        R$ {{ produto.preco }}
+                    </td>
+                    <td>
+                        {{ produto.categoria|default:"Sem categoria" }}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">Nenhum produto cadastrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock content %}

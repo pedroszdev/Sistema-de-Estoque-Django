@@ -1,23 +1,23 @@
 {% extends "global/base.html" %}
 {% block content %}
     <div class="item-container">
-            <h1 class="item-title">{{ item.nome }}</h1>
+        <h1 class="item-title">{{ item.nome }}</h1>
 
-            <div class="item-details">
+        <div class="item-details">
+
+            <div class="item-info">
                 <p><strong>ID:</strong> {{ item.id }}</p>
-                <p><strong>Quantidade:</strong> {{ item.quantidade }}</p>
-                <p><strong>Preço:</strong> R$ {{ item.preco }}</p>
                 <p><strong>Categoria:</strong> {{ item.categoria|default:"Sem categoria" }}</p>
-            </div>
+                <p><strong>Quantidade:</strong> {{ item.quantidade }}</p>
+                <p><strong>Preço:</strong> R$ {{ item.preco|floatformat:2 }}</p>
+                <p><strong>Descrição:</strong> {{ item.descricao|default:"Sem descrição" }}</p>
 
-            <div class="item-actions">
-                <a href="{% url 'SistemaEstoque:update' item.id %}" class="btn-update">
-                    Atualizar Item
-                </a>
-                <a href="{% url 'SistemaEstoque:delete' item.id %}" class="btn-delete">
-                    Deletar Item
-                </a>
+                <div class="item-buttons">
+                    <a href="{% url 'SistemaEstoque:update' item.id %}" class="btn-edit">Atualizar Produto</a>
+                    <a href="{% url 'SistemaEstoque:delete' item.id %}" class="btn-delete">Excluir Produto</a>
+                </div>
             </div>
+        </div>
     </div>
 
 {% endblock content %}

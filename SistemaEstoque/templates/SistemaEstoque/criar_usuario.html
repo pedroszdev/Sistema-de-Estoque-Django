@@ -1,11 +1,15 @@
 {% extends "global/base.html" %}
 {% block content %}
-    <div class="min-h-screen">
-        <div class="container py-8">
-            <div class="mb-8">
-                <h2 class="text-2xl text-gray-900">Cadastrar Novo Usuário</h2>
-            </div>
-            {% include "global/partials/forms.html" %}
+    <div class="form-container">
+    <h1 class="form-title">{{ title }}</h1>
+
+    <form action="{{form_action}}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <p>{{ form.as_p }}</p>
         </div>
-    </div>
+
+        <button type="submit" class="btn-submit">Enviar</button>
+    </form>
+</div>
 {% endblock content %}

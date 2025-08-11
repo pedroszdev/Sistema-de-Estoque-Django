@@ -3,11 +3,16 @@
     <div class="min-h-screen">
        
 
-        <div class="container py-8">
-            <div class="mb-8">
-                <h2 class="text-2xl text-gray-900">Atualizar item</h2>
-            </div>
-            {% include "global/partials/forms.html" %}
+        <div class="form-container">
+    <h1 class="form-title"> Atualizar Produto</h1>
+
+    <form action="{{form_action}}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
         </div>
-    </div>
+
+        <button type="submit" class="btn-submit">Atualizar</button>
+    </form>
+</div>
 {% endblock content %}

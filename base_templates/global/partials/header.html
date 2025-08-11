@@ -1,27 +1,20 @@
 <nav>
-    <div class="nav-content">
-        
-            <div class="logo">
-                
-                <a href="{% url "SistemaEstoque:home" %}">
-                    <h1 class="text-2xl">Estoque</h1>
-                </a>
-            </div>
-
-            <div class="nav-links">
-                <a href="{% url "SistemaEstoque:inventario" %}">Inventário</a>
-                <a href="{% url "SistemaEstoque:novo_item" %}">Cadastrar Produto</a>
-                <a href="{% url "SistemaEstoque:nova_categoria" %}">Cadastrar Categoria</a>
-
-            </div>
-            <div class="nav-right">
-                <div class="user-info">
-                    <span class="text-sm text-gray-500"></span>
-                    <span class="text-sm text-gray-600">{{user.username}}</span>
-                </div>
-                <div class="user-avatar">
-                    <p>NU</p>
-                </div>
-            </div>
+    <nav class="navbar">
+    <div class="navbar-logo">
+        <a href="{% url 'SistemaEstoque:home' %}">Estoque</a>
     </div>
+
+    <ul class="navbar-links">
+        <li><a href="{% url 'SistemaEstoque:home' %}">Home</a></li>
+        <li><a href="{% url 'SistemaEstoque:inventario' %}">Inventário</a></li>
+        <li><a href="{% url 'SistemaEstoque:novo_item' %}">Cadastrar Produto</a></li>
+        <li><a href="{% url 'SistemaEstoque:nova_categoria' %}">Cadastrar Categoria</a></li>
+    </ul>
+
+    <div class="navbar-user">
+        <span><a class="logout" href="{% url "SistemaEstoque:atualizar_usuario" %}">👤 {{ user.username }}</a></span>
+        <a href="{% url 'SistemaEstoque:logout' %}" class="btn-logout">logout</a>
+        
+    </div>
+</nav>
 </nav>

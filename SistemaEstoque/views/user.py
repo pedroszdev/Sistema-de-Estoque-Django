@@ -17,7 +17,8 @@ def criar_user(request):
             return redirect('SistemaEstoque:home')
     
     contexto={
-        'form': form
+        'form': form,
+        'title' : 'Cadastar Novo Usuário'
     }
 
 
@@ -38,7 +39,8 @@ def atualizar_user(request):
             return redirect('SistemaEstoque:home')
     
     contexto={
-        'form': form
+        'form': form,
+        'title' : 'Atualizar Usuário'
     }
 
 

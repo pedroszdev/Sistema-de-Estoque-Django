@@ -1,22 +1,52 @@
 {% extends "global/base.html" %}
 {% block content %}
-    <div class="home-container">
-    <h1 class="home-title">📦 Sistema de Estoque</h1>
+   <div class="home-container">
+    <h1 class="home-title">Painel de Controle</h1>
     <p class="home-subtitle">Gerencie seus produtos de forma simples e rápida</p>
 
-    <div class="home-cards">
-        <div class="card">
+    <div class="stats-grid">
+        <div class="stat-card green">
             <h2>{{ total_produtos }}</h2>
-            <p>Produtos Cadastrados</p>
+            <p>Total de Produtos</p>
         </div>
-        <div class="card">
+
+        <div class="stat-card red">
             <h2>R$ {{ valor_total|floatformat:2 }}</h2>
-            <p>Valor Total em Estoque</p>
+            <p>Valor Total</p>
         </div>
-        <div class="card">
+
+        <div class="stat-card blue">
             <h2>{{ total_categoria }}</h2>
             <p>Categorias</p>
         </div>
+    </div>
+
+    <div class="recent-section">
+        <h2>🆕 Últimos Produtos Adicionados</h2>
+        <table class="recent-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos_recentes %}
+                <tr>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.categoria }}</td>
+                    <td>{{ produto.quantidade }}</td>
+                    <td>R$ {{ produto.preco|floatformat:2 }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">Nenhum produto cadastrado recentemente.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 {% endblock content %}
