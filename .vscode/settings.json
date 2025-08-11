@@ -1,0 +1,32 @@
+{
+    "workbench.colorTheme": "OM Theme (Default Dracula Italic)",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.location": "bottom",
+    "git.autofetch": true,
+    "explorer.confirmDelete": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "onWindowChange",
+    "[django-html]": {
+
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": true,
+            "strings": true
+        }
+    },
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    "workbench.settings.applyToAllProfiles": [
+        "emmet.includeLanguages"
+    ],
+    "files.associations": {
+        "*.html": "django-html"
+    },
+    "html.format.extraLiners": "",
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.donotShowInfoMsg": true
+}
