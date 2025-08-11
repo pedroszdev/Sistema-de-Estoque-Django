@@ -20,10 +20,12 @@ class CategoriaForm((forms.ModelForm)):
 
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(
+        label='Primeiro Nome',
         required=True,
         min_length=3,
     )
     last_name = forms.CharField(
+         label='Último Nome',
         required=False,
         min_length=3,
     )
