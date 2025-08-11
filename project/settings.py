@@ -77,12 +77,16 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,
-        ssl_require=True
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'estoque_usbk',      # nome do banco PostgreSQL
+        'USER': 'estoque_usbk_user',   # seu usuário do PostgreSQL
+        'PASSWORD': 'egkAeTIC9zLjWwgd4CSOTMKUY2LOifv7', # senha do usuário
+        'HOST': '189.27.225.33/32',          # ou o IP do servidor do banco
+        'PORT': '5432',               # porta padrão do PostgreSQL
+    }
 }
+
 
 
 
