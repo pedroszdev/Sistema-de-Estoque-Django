@@ -14,7 +14,7 @@ def criar_user(request):
 
         if form.is_valid():
             form.save()
-            return redirect('SistemaEstoque:home')
+            return redirect('SistemaEstoque:login')
     
     contexto={
         'form': form,
@@ -68,4 +68,4 @@ def login_user(request):
 @login_required(login_url='SistemaEstoque:login')  
 def logout(request):
     auth.logout(request)
-    return redirect('SistemaEstoque:login')
+    return redirect('SistemaEstoque:home')

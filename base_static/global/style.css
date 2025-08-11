@@ -69,6 +69,7 @@ body{
     display: block;
     margin-bottom: 5px;
     color: #302f2f;
+    padding: 2px;
 }
 
 .form-group input,
@@ -81,14 +82,23 @@ body{
     font-size: 14px;
     transition: border-color 0.2s ease-in-out;
 }
-
+.errors{
+    color: rgb(240, 70, 70);
+    text-decoration: none;
+}
+::marker{
+    text-decoration: none;
+}
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     border-color: #6a0dad;
     outline: none;
 }
-
+.help-text{
+    color: rgb(54, 54, 54);
+    text-decoration: none;
+}
 .btn-submit {
     width: 100%;
     padding: 12px;
@@ -252,7 +262,7 @@ body{
     color: #45488D;
     text-decoration: none;
 }
-a{
+.logout{
     text-decoration: none;
     color:whitesmoke
 }

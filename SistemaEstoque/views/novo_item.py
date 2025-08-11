@@ -19,7 +19,7 @@ def add_item(request):
         }
         if form.is_valid():
             form.save()
-            return redirect('SistemaEstoque:home')
+            return redirect('SistemaEstoque:inventario')
         
         return render(request, 'SistemaEstoque/novo_item.html', contexto)
     
@@ -45,7 +45,7 @@ def update(request, id_item):
         if form.is_valid():
             estoque=form.save()
 
-            return redirect('SistemaEstoque:home')
+            return redirect('SistemaEstoque:inventario')
     
     contexto={
             'form_action' : form_action,

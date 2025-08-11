@@ -17,7 +17,7 @@ def add_ctg(request):
         }
         if form.is_valid():
             form.save()
-            return redirect('SistemaEstoque:home')
+            return redirect('SistemaEstoque:inventario')
         
         return render(request, 'SistemaEstoque/nova_ctg.html', contexto)
     

@@ -1,15 +1,25 @@
 {% extends "global/base.html" %}
 {% block content %}
     <div class="form-container">
-    <h1 class="form-title">{{ title }}</h1>
+        <h1 class="form-title">{{ title }}</h1>
 
-    <form action="{{form_action}}" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <p>{{ form.as_p }}</p>
-        </div>
+        <form action="{{form_action}}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {% for field in form %}
+                    <label for="{{field.id_for_label}}">{{field.label}}:</label> 
+                    {{field}}
+                    <div class="errors">{{field.errors}}</div>
+                    
+                    {% if field.help_text %}
+                        <p class="help-text">{{ field.help_text }}</p>
+                    {% endif %}
+                    
+                    
 
-        <button type="submit" class="btn-submit">Enviar</button>
-    </form>
-</div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+    </div>
 {% endblock content %}
