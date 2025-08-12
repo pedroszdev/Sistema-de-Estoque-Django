@@ -6,6 +6,10 @@ __pycache__
 db.sqlite3
 media
 project/local_settings.py
+project/__pycache__/*
+project/__pycache__
+SistemaEstoque/__pycache__/*
+SistemaEstoque/__pycache__
 # Backup files # 
 *.bak 
 
