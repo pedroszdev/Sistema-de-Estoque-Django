@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 import dj_database_url
 from pathlib import Path
-
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'estoque_usbk',      # nome do banco PostgreSQL
-        'USER': 'estoque_usbk_user',   # seu usuário do PostgreSQL
-        'PASSWORD': 'egkAeTIC9zLjWwgd4CSOTMKUY2LOifv7', # senha do usuário
-        'HOST': 'dpg-d2d2cqi4d50c7383lef0-a',          # ou o IP do servidor do banco
+        'NAME': config('DB_NAME'),      # nome do banco PostgreSQL
+        'USER': config('DB_USER'),   # seu usuário do PostgreSQL
+        'PASSWORD': config('DB_PASSWORD'), # senha do usuário
+        'HOST': config('DB_HOST'),          # ou o IP do servidor do banco
         'PORT': '5432',               # porta padrão do PostgreSQL
     }
 }
@@ -131,3 +131,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

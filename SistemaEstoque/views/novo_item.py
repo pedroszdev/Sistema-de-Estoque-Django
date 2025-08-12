@@ -18,7 +18,9 @@ def add_item(request):
             'form': form
         }
         if form.is_valid():
-            form.save()
+            produto=form.save(commit=False)
+            produto.criador= request.user
+            produto.save()
             return redirect('SistemaEstoque:inventario')
         
         return render(request, 'SistemaEstoque/novo_item.html', contexto)
