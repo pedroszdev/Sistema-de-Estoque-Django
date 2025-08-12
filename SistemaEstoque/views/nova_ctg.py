@@ -16,7 +16,9 @@ def add_ctg(request):
             'form': form
         }
         if form.is_valid():
-            form.save()
+            categoria=form.save(commit=False)
+            categoria.criador= request.user
+            categoria.save()
             return redirect('SistemaEstoque:inventario')
         
         return render(request, 'SistemaEstoque/nova_ctg.html', contexto)

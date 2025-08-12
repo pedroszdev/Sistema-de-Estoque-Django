@@ -62,4 +62,5 @@ def update(request, id_item):
 def delete(request, id_item):
     item= Estoque.objects.get(id=id_item, criador=request.user)
     item.delete()
-    return render(request,'SistemaEstoque/inventario.html')
+    return redirect('SistemaEstoque:inventario')
+    

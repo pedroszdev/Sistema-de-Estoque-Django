@@ -13,7 +13,13 @@
 
     <div class="navbar-user">
         <span><a class="logout" href="{% url "SistemaEstoque:atualizar_usuario" %}">👤 {{ user.username }}</a></span>
-        <a href="{% url 'SistemaEstoque:logout' %}" class="btn-logout">logout</a>
+        <a href="{% url 'SistemaEstoque:logout' %}" class="btn-logout">
+            {% if request.user.is_authenticated %}
+                Logout
+            {% else %}
+                Login
+            {% endif %}
+        </a>
         
     </div>
 </nav>

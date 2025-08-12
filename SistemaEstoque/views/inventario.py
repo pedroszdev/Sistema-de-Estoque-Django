@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from SistemaEstoque.models import Estoque,Categoria
+from SistemaEstoque.models import Estoque
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='SistemaEstoque:login')
 def inventario(request):
-    estoque=Estoque.objects.filter().order_by('-id',)
+    estoque=Estoque.objects.filter(criador=request.user).order_by('-id',)
     paginator=Paginator(estoque,30)
     page_number=request.GET.get('page')
     page_obj=paginator.get_page(page_number)
@@ -26,7 +26,7 @@ def inventario(request):
 def search(request):
     search_value=request.GET.get('q', '').strip() 
     
-    estoque=Estoque.objects.filter(
+    estoque=Estoque.objects.filter(criador=request.user).filter(
         Q(nome__icontains=search_value) | 
         Q(quantidade__icontains=search_value) | 
         Q(id__icontains=search_value) |
